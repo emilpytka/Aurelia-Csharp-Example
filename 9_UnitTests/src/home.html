@@ -1,0 +1,32 @@
+<template>
+  <require from='./converters/ToShorterValueConverter' as="toShorter"></require>
+
+  <div class="alert alert-success alert-dismissable fade in" if.bind="message != null">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+    <span class="alertmessage">${message}</span>
+  </div>
+
+  <div repeat.for="post of posts">
+    <article class="post">
+      <div if.bind="post.isNew" class="postNew">
+        <div class="form-group">
+          <input type="text" value.bind="post.title" class="form-control" placeholder="title"/>
+        </div>
+        <div class="form-group">
+          <textarea value.bind="post.content" class="form-control" placeholder="content"></textarea>
+        </div>
+        <button click.trigger="$parent.savePost(post)" class="btn btnSave">Save</button>
+        <button click.trigger="$parent.cancelPost(post)" class="btn btnCancel">Cancel</button>
+      </div>
+      <div if.bind="!post.isNew">
+        <h3><a href="#/postDetails?postId=${post.id}">${post.title}</a></h3>
+        <p>${post.content | toShorter: 500}
+      </div>
+      <hr/>
+    </article>
+  </div>
+
+  <button id="btnAddNewPost" click.trigger="addNewPost()" class="btn">Add new post </button>
+  <button id="btnClearList" click.trigger="clearList()" class="btn">Clear list</button>
+
+</template>

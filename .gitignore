@@ -1,0 +1,12 @@
+/9_UnitTests/src/**/*.js
+/9_UnitTests/test/**/*.js
+/9_UnitTests/jspm_packages
+/9_UnitTests/node_modules
+/9_UnitTests/dist
+/9_UnitTests.npmignore
+/9_UnitTests.jshintrc
+/9_UnitTests/test/e2e/dist
+/9_UnitTests/bin
+/9_UnitTests/obj
+/packages
+/.vs
