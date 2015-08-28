@@ -1,8 +1,0 @@
-/src/**/*.js
-/test/**/*.js
-/jspm_packages
-/node_modules
-/dist
-.npmignore
-.jshintrc
-/test/e2e/dist
